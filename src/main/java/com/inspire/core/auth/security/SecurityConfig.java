@@ -42,6 +42,7 @@ public class SecurityConfig {
 	      .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 	      .authorizeHttpRequests(auth -> auth
 	          .requestMatchers(HttpMethod.POST, "/login").permitAll()
+	          .requestMatchers(HttpMethod.GET,  "/.well-known/jwks.json").permitAll()
 	          .anyRequest().authenticated()
 	      );
 
